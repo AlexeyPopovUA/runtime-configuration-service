@@ -1,0 +1,33 @@
+{
+  "name": "configuration-service",
+  "version": "0.1.0",
+  "bin": {
+    "configuration-service": "bin/configuration-service.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "clean": "rm -rf ./cdk.out",
+    "cdk-synth-stacks": "cdk synth",
+    "cdk-diff-stacks": "cdk diff",
+    "deploy": "cdk deploy configuration-service-*",
+    "type-check": "tsc",
+    "update-dependencies": "npx npm-check-updates -u --packageFile package.json"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "18.14.6",
+    "aws-cdk": "2.77.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.5"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.77.0-alpha.0",
+    "@aws-solutions-constructs/aws-cloudfront-apigateway-lambda": "^2.39.0",
+    "aws-cdk-lib": "2.77.0",
+    "aws-sdk": "^2.1367.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21"
+  }
+}

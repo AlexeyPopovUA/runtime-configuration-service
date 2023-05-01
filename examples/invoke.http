@@ -1,0 +1,7 @@
+GET https://configuration-service.examples.oleksiipopov.com/runtime
+origin: test
+
+######
+
+GET https://csh348m0b0.execute-api.us-east-1.amazonaws.com/main/runtime
+origin: test.com
