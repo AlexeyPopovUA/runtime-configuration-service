@@ -1,7 +1,32 @@
-GET https://configuration-service.examples.oleksiipopov.com/runtime
-origin: test
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://prod.config-demo.examples.oleksiipopov.com
 
 ######
 
-GET https://csh348m0b0.execute-api.us-east-1.amazonaws.com/main/runtime
-origin: test.com
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://google.com
+
+######
+
+OPTIONS https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://google.com
+
+######
+
+GET https://configuration-service.examples.oleksiipopov.com/by-key?environment=base
+
+######
+
+GET https://configuration-service.examples.oleksiipopov.com/by-key?environment=production
+
+######
+
+OPTIONS https://configuration-service.examples.oleksiipopov.com/by-key?environment=base
+origin: http://localhost:9000
+
+######
+
+OPTIONS https://configuration-service.examples.oleksiipopov.com/by-key?environment=base
+origin: http://localhost:12345
+
+######

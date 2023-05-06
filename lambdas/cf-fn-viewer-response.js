@@ -1,13 +1,14 @@
 // this is CloudFront Function, not a lambda@edge. See https://aws.amazon.com/blogs/aws/introducing-cloudfront-functions-run-your-code-at-the-edge-with-low-latency-at-any-scale/
 // JavaScript -> ECMAScript 5.1 compliant
 
+// these headers will be forwarded to client with response. Caching is not affected. It happens on the edge (after the caching layer).
 var forwardRequestHeaders = [
     "cloudfront-viewer-country",
     "cloudfront-viewer-city"
 ];
 
 function handler(event) {
-    console.log(JSON.stringify(event, null, 4));
+    // console.log(JSON.stringify(event, null, 4));
 
     if (event.request.method === "GET") {
         // CloudFront may return an incomplete cloudfront-viewer-* headers set

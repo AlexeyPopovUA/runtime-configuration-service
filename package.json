@@ -5,6 +5,7 @@
     "configuration-service": "bin/configuration-service.js"
   },
   "scripts": {
+    "test": "jest",
     "clean": "rm -rf ./cdk.out",
     "cdk-synth-stacks": "cdk synth",
     "cdk-diff-stacks": "cdk diff",

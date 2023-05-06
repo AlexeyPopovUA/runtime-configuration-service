@@ -2,9 +2,10 @@
 // JavaScript -> ECMAScript 5.1 compliant
 
 function handler(event) {
-    console.log(JSON.stringify(event, null, 4));
+    // console.log(JSON.stringify(event, null, 4));
 
-    if (!event.request.headers.origin) {
+    // if request "origin" header is not available, try to use the "referer" header to compensate it
+    if (!event.request.headers.origin && event.request.headers.referer) {
         // try to fix absent "origin" header that is not sent from the client. (pre-rendering browsers or scripts)
         var req = Object.assign({}, event.request);
 

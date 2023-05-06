@@ -2,7 +2,7 @@
 import 'source-map-support/register';
 import {App} from 'aws-cdk-lib';
 
-import {ConfigurationServiceStack} from '../lib/configuration-service-stack';
+import {ConfigurationServiceStack} from '../stacks/configuration-service-stack';
 import configuration from "../cfg/configuration";
 
 const app = new App();
