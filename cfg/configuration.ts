@@ -22,9 +22,10 @@ export default {
             "dev.config-demo.examples.oleksiipopov.com"
         ],
         ALLOWED_ENVIRONMENTS: [
-            "production"
+            "production-by-key",
+            "default"
         ],
         FALLBACK_ORIGIN: "https://prod.config-demo.examples.oleksiipopov.com",
-        DEFAULT_ENVIRONMENT: "default"
+        FALLBACK_ENVIRONMENT: "default"
     }
 };

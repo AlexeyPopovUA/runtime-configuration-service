@@ -1,6 +1,8 @@
 import {DynamoDBClient} from "@aws-sdk/client-dynamodb";
 import {DynamoDBDocument} from "@aws-sdk/lib-dynamodb";
 
+import configuration from "../../cfg/configuration";
+
 const client = new DynamoDBClient({region: process.env.REGION});
 const ddbDocClient = DynamoDBDocument.from(client);
 
@@ -19,12 +21,19 @@ const fetchConfigurationByName = async (name: string): Promise<Record<string, an
 
     console.log({found: response?.Item ?? "[nothing!]"});
 
+    // go deeper
     if (response?.Item?.extends) {
         const parentCfg = await fetchConfigurationByName(response.Item.extends);
-
         return {...parentCfg, ...response.Item };
+
+    // return the result as is
+    } else if (response?.Item) {
+        return response?.Item;
+
+    // fallback to the default environment
     } else {
-        return response?.Item ?? {};
+        const defaultCfg = await fetchConfigurationByName(configuration.CLIENTS.FALLBACK_ENVIRONMENT);
+        return defaultCfg.Item;
     }
 }
 
