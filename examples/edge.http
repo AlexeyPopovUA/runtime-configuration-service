@@ -1,0 +1,34 @@
+######
+# should succeed and return a prod configuration object
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://prod.config-demo.examples.oleksiipopov.com
+
+######
+# should succeed and return an acc configuration object
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://acc.config-demo.examples.oleksiipopov.com
+
+######
+# should succeed and return a default configuration object
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://main.dev.config-demo.examples.oleksiipopov.com
+
+######
+# should succeed and return a default configuration object
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://feature-123.dev.config-demo.examples.oleksiipopov.com
+
+######
+# should succeed and return a special configuration object
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://special.dev.config-demo.examples.oleksiipopov.com
+
+######
+# should fail with 4xx
+GET https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://google.com
+
+######
+# should succeed, but return the fallback allowed origin header, so the client fails with CORS error
+OPTIONS https://configuration-service.examples.oleksiipopov.com/edge
+origin: https://google.com

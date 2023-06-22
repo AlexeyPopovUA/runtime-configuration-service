@@ -1,0 +1,11 @@
+######
+# should fail, because this environment is not in the allowed list
+GET https://configuration-service.examples.oleksiipopov.com/by-key?environment=base
+
+######
+# should fail, because this environment is not in the allowed list
+GET https://configuration-service.examples.oleksiipopov.com/by-key?environment=google.com
+
+######
+# should succeed and return a configuration object
+GET https://configuration-service.examples.oleksiipopov.com/by-key?environment=production-by-key
