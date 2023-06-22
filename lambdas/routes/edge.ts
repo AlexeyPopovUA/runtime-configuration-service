@@ -11,7 +11,6 @@ export const edgeRouteHandler = async (req: Request<unknown, unknown, unknown, u
         const environment = new URL(origin).hostname;
 
         const configuration = await fetchConfigurationByName(environment);
-        console.log("edgeRouteHandler", configuration);
 
         res.json({configuration});
     } else {

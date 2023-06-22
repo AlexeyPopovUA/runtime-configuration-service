@@ -17,7 +17,6 @@ const fetchConfigurationByName = async (name: string): Promise<Record<string, an
     let currentCfgName = name;
 
     while (currentCfgName) {
-        console.log({currentCfgName});
         if (visited.has(currentCfgName)) {
             currentCfgName = "";
         } else {
@@ -34,36 +33,7 @@ const fetchConfigurationByName = async (name: string): Promise<Record<string, an
         }
     }
 
-    console.log({visited});
-    console.log({queue});
-
     return queue.reduceRight((cfg, acc) => ({...cfg, ...acc}), {});
-
-    // const response = await ddbDocClient.get({
-    //     TableName: process.env.CONFIG_TABLE,
-    //     Key: {
-    //         environment: name
-    //     }
-    // });
-    //
-    // const currentCfg = response?.Item || {};
-    //
-    // console.log({currentCfg});
-    //
-    // // go deeper
-    // if (currentCfg?.extends) {
-    //     const parentCfg = await fetchConfigurationByName(currentCfg.extends);
-    //     return {...parentCfg, ...response.Item};
-    //
-    // // return the result as is
-    // } else if (currentCfg) {
-    //     return currentCfg;
-    //
-    // // fallback to the default environment
-    // } else {
-    //     const defaultCfg = await fetchConfigurationByName(configuration.CLIENTS.FALLBACK_ENVIRONMENT);
-    //     return defaultCfg?.Item || {};
-    // }
 };
 
 const fetchConfiguration = async (name: string) => {
@@ -82,8 +52,6 @@ const fetchConfiguration = async (name: string) => {
         console.error(e);
     }
 
-    console.log("fetchConfiguration");
-    console.log(JSON.stringify({currentCfg}, null, 4));
     return currentCfg;
 };
 
