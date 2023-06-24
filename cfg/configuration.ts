@@ -3,11 +3,11 @@ import {name} from "../package.json";
 export default {
     COMMON: {
         project: name,
-        region: "us-east-1",
-        account: "026090449790"
+        region: process.env.AWS_DEPLOYMENT_REGION,
+        account: process.env.AWS_ACCOUNT
     },
     HOSTING: {
-        hostedZoneID: "Z1O5PNX51MI59R",
+        hostedZoneID: process.env.HOSTED_ZONE_ID,
         hostedZoneName: "oleksiipopov.com",
         domainName: "configuration-service.examples.oleksiipopov.com"
     },

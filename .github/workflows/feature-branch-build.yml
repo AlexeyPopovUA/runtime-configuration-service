@@ -7,7 +7,7 @@ on:
 
 env:
   DEFAULT_BRANCH: main
-  AWS_AUTH_ROLE: "arn:aws:iam::026090449790:role/gha-aws-oidc-oidbc-prod-ghaawsoidcroleprodADA66B76-16JXA65ME5F0Z"
+  AWS_AUTH_ROLE: ${{ env.AWS_AUTH_ROLE }}
 
 jobs:
   build_and_deploy:
