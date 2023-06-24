@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.85.0-alpha.0",
-    "@aws-sdk/client-dynamodb": "^3.357.0",
+    "@aws-sdk/client-dynamodb": "^3.359.0",
     "@aws-sdk/lib-dynamodb": "^3.357.0",
     "@aws-solutions-constructs/aws-cloudfront-apigateway-lambda": "^2.41.0",
     "@vendia/serverless-express": "^4.10.4",
