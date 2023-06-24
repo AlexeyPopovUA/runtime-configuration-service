@@ -20,7 +20,7 @@ const fetchConfigurationByName = async (name: string): Promise<Record<string, an
         if (visited.has(currentCfgName)) {
             currentCfgName = "";
         } else {
-            const currentCfg = await fetchConfiguration(currentCfgName);
+            const currentCfg = await getCfgFromDB(currentCfgName);
 
             if (currentCfg) {
                 visited.add(currentCfgName);
@@ -36,14 +36,14 @@ const fetchConfigurationByName = async (name: string): Promise<Record<string, an
     return queue.reduceRight((cfg, acc) => ({...cfg, ...acc}), {});
 };
 
-const fetchConfiguration = async (name: string) => {
+const getCfgFromDB = async (environment: string) => {
     let currentCfg;
 
     try {
         const {Item} = await ddbDocClient.get({
             TableName: process.env.CONFIG_TABLE,
             Key: {
-                environment: name
+                environment
             }
         });
 
