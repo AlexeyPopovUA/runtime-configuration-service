@@ -13,13 +13,13 @@ export default {
     },
     CLIENTS: {
         ALLOWED_ORIGINS: [
-            "http://127.0.0.1:9000",
-            "http://localhost:9000",
             "https://prod.config-demo.examples.oleksiipopov.com",
             "https://acc.config-demo.examples.oleksiipopov.com"
         ],
         ALLOWED_ORIGIN_ENDS: [
-            "dev.config-demo.examples.oleksiipopov.com"
+            "dev.config-demo.examples.oleksiipopov.com",
+            "127.0.0.1:9000",
+            "localhost:9000"
         ],
         ALLOWED_ENVIRONMENTS: [
             "production-by-key",
