@@ -32,7 +32,7 @@ jobs:
           npm run type-check
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: eu-west-1
           role-to-assume: ${{ vars.AWS_AUTH_ROLE }}
