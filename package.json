@@ -16,7 +16,7 @@
     "@types/aws-lambda": "^8.10.119",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.13",
-    "@types/express": "^4.17.17",
+    "@types/express": "^5.0.0",
     "@types/jest": "^29.5.2",
     "@types/node": "22.13.0",
     "aws-cdk": "2.177.0",
